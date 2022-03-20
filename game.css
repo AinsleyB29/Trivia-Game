@@ -1,5 +1,5 @@
 body {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .selection-container {
@@ -8,7 +8,7 @@ body {
   width: 100%;
   border-radius: 4px;
   background: rgb(18, 92, 2);
-  font-size: 3rem;
+  font-size: 1.5rem;
   min-width: 80rem;
 }
 
