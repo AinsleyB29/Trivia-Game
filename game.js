@@ -1,10 +1,9 @@
 const question = document.querySelector('#question');
-const selections = Array.from(document.querySelectorAll('.selection-text'));
+const selections = document.querySelectorAll('.selection-text');
+const container = document.querySelector('.container');
 
-let currentOption = {};
-let receivingAnswers = true;
-let questionAccumulator = 0;
-let accessibleQuestions = [];
+let score = 0;
+let index = 0;
 
 let questions = [
   {
@@ -84,18 +83,35 @@ let questions = [
   },
 ];
 
-clockIn = () => {
-  questionAccumulator = 0;
-  accessibleQuestions = [...questions];
-  getNextQuestion();
-};
-
 getNextQuestion = () => {
   // BUILD OUT LOGIC
+  question.innerHTML = questions[index].question;
+  selections[0].innerHTML = questions[index].selection1;
+  selections[1].innerHTML = questions[index].selection2;
+  selections[2].innerHTML = questions[index].selection3;
 };
 
-//call it
-clockIn();
+handleClick = (e) => {
+  let selected = parseInt(e.target.dataset.number);
 
-//
-selections.addEventListener('click');
+  if (selected === questions[index].answer) {
+    e.target.classList.add('correct');
+    score++;
+  } else {
+    e.target.classList.add('incorrect');
+  }
+
+  if (index < questions.length - 1) {
+    index++;
+    e.target.classList.remove('correct');
+    e.target.classList.remove('incorrect');
+    setInterval(getNextQuestion, 2000);
+  } else {
+    container.innerHTML = '';
+    container.innerHTML = `Congrats! You scored a ${score} out of ${questions.length}`;
+  }
+};
+
+selections.forEach((selection) => {
+  selection.addEventListener('click', handleClick);
+});
