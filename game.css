@@ -27,6 +27,7 @@ body {
 .selection-text {
   padding: 2rem;
   width: 100%;
+  color: white;
 }
 
 .correct {
