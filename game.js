@@ -1,10 +1,8 @@
 const question = document.querySelector('#question');
 const selections = Array.from(document.querySelectorAll('.selection-text'));
-const scoreText = document.querySelector('#score');
 
 let currentOption = {};
 let receivingAnswers = true;
-let score = 0;
 let questionAccumulator = 0;
 let accessibleQuestions = [];
 
@@ -86,24 +84,14 @@ let questions = [
   },
 ];
 
-const SCORE_POINTS = 100;
-const MAX_QUESTIONS = 3;
-
 clockIn = () => {
   questionAccumulator = 0;
-  score = 0;
   accessibleQuestions = [...questions];
   getNextQuestion();
 };
 
 getNextQuestion = () => {
   // BUILD OUT LOGIC
-};
-
-incrementScore = (num) => {
-  //increase score
-  score += num;
-  scoreText.innerText = score;
 };
 
 //call it
