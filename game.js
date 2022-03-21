@@ -108,3 +108,5 @@ incrementScore = (num) => {
 
 //call it
 clockIn();
+
+selections.addEventListener('click');
