@@ -97,4 +97,5 @@ getNextQuestion = () => {
 //call it
 clockIn();
 
+//
 selections.addEventListener('click');
